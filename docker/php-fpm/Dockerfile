@@ -78,3 +78,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN usermod -u 1000 www-data
 WORKDIR /var/www
+RUN apt-get update && apt-get install
+ADD . /var/www
+COPY . /var/www
+RUN chown -R www-data:www-data /var/www
